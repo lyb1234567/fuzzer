@@ -1,0 +1,68 @@
+# RUN: choco-opt %s | filecheck %s
+def n(a:[[int]]) :
+
+	global m
+	_o__Lq:str=6
+	while not not not -A:
+	
+		pass
+		
+	
+	pass
+	
+
+pass
+pass
+pass
+pass
+pass
+pass
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {
+# CHECK-NEXT:    choco.ast.func_def() ["func_name" = "n"] {
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "a"] {
+# CHECK-NEXT:        choco.ast.list_type() {
+# CHECK-NEXT:          choco.ast.list_type() {
+# CHECK-NEXT:            choco.ast.type_name() ["type_name" = "int"]
+# CHECK-NEXT:          }
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.type_name() ["type_name" = "<None>"]
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.global_decl() ["decl_name" = "m"]
+# CHECK-NEXT:      choco.ast.var_def() {
+# CHECK-NEXT:        choco.ast.typed_var() ["var_name" = "_o__Lq"] {
+# CHECK-NEXT:          choco.ast.type_name() ["type_name" = "str"]
+# CHECK-NEXT:        }
+# CHECK-NEXT:      } {
+# CHECK-NEXT:        choco.ast.literal() ["value" = 6 : !i32]
+# CHECK-NEXT:      }
+# CHECK-NEXT:      choco.ast.while() {
+# CHECK-NEXT:        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:              choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                choco.ast.id_expr() ["id" = "A"]
+# CHECK-NEXT:              }
+# CHECK-NEXT:            }
+# CHECK-NEXT:          }
+# CHECK-NEXT:        }
+# CHECK-NEXT:      } {
+# CHECK-NEXT:        choco.ast.pass()
+# CHECK-NEXT:      }
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:  } {
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

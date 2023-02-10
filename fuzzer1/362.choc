@@ -1,0 +1,81 @@
+# RUN: choco-opt %s | filecheck %s
+def d_(ni:bool,m_:bool,S:str) -> [[bool]]:
+
+	if _q ([]) or not (True):
+	
+		pass
+		pass
+		pass
+		pass
+		pass
+		pass
+		pass
+		pass
+		
+	
+	else:
+	
+		pass
+		pass
+		
+	
+	
+
+pass
+pass
+pass
+pass
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {
+# CHECK-NEXT:    choco.ast.func_def() ["func_name" = "d_"] {
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "ni"] {
+# CHECK-NEXT:        choco.ast.type_name() ["type_name" = "bool"]
+# CHECK-NEXT:      }
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "m_"] {
+# CHECK-NEXT:        choco.ast.type_name() ["type_name" = "bool"]
+# CHECK-NEXT:      }
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "S"] {
+# CHECK-NEXT:        choco.ast.type_name() ["type_name" = "str"]
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.list_type() {
+# CHECK-NEXT:        choco.ast.list_type() {
+# CHECK-NEXT:          choco.ast.type_name() ["type_name" = "bool"]
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.if() {
+# CHECK-NEXT:        choco.ast.binary_expr() ["op" = "or"] {
+# CHECK-NEXT:          choco.ast.call_expr() ["func" = "_q"] {
+# CHECK-NEXT:            choco.ast.list_expr() {}
+# CHECK-NEXT:          }
+# CHECK-NEXT:        } {
+# CHECK-NEXT:          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:            choco.ast.literal() ["value" = !choco.ast.bool<True>]
+# CHECK-NEXT:          }
+# CHECK-NEXT:        }
+# CHECK-NEXT:      } {
+# CHECK-NEXT:        choco.ast.pass()
+# CHECK-NEXT:        choco.ast.pass()
+# CHECK-NEXT:        choco.ast.pass()
+# CHECK-NEXT:        choco.ast.pass()
+# CHECK-NEXT:        choco.ast.pass()
+# CHECK-NEXT:        choco.ast.pass()
+# CHECK-NEXT:        choco.ast.pass()
+# CHECK-NEXT:        choco.ast.pass()
+# CHECK-NEXT:      } {
+# CHECK-NEXT:        choco.ast.pass()
+# CHECK-NEXT:        choco.ast.pass()
+# CHECK-NEXT:      }
+# CHECK-NEXT:    }
+# CHECK-NEXT:  } {
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

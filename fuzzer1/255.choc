@@ -1,0 +1,97 @@
+# RUN: choco-opt %s | filecheck %s
+for I_ in _6:
+
+	return a ([])
+	while not p or M ([not -(w[not _[True][[]]]) or not not not [] and False or not -b]) or not []:
+	
+		pass
+		
+	
+	pass
+	pass
+	pass
+	
+
+pass
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {} {
+# CHECK-NEXT:    choco.ast.for() ["iter_name" = "I_"] {
+# CHECK-NEXT:      choco.ast.id_expr() ["id" = "_6"]
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.return() {
+# CHECK-NEXT:        choco.ast.call_expr() ["func" = "a"] {
+# CHECK-NEXT:          choco.ast.list_expr() {}
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:      choco.ast.while() {
+# CHECK-NEXT:        choco.ast.binary_expr() ["op" = "or"] {
+# CHECK-NEXT:          choco.ast.binary_expr() ["op" = "or"] {
+# CHECK-NEXT:            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:              choco.ast.id_expr() ["id" = "p"]
+# CHECK-NEXT:            }
+# CHECK-NEXT:          } {
+# CHECK-NEXT:            choco.ast.call_expr() ["func" = "M"] {
+# CHECK-NEXT:              choco.ast.list_expr() {
+# CHECK-NEXT:                choco.ast.binary_expr() ["op" = "or"] {
+# CHECK-NEXT:                  choco.ast.binary_expr() ["op" = "or"] {
+# CHECK-NEXT:                    choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                      choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                        choco.ast.index_expr() {
+# CHECK-NEXT:                          choco.ast.id_expr() ["id" = "w"]
+# CHECK-NEXT:                        } {
+# CHECK-NEXT:                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                            choco.ast.index_expr() {
+# CHECK-NEXT:                              choco.ast.index_expr() {
+# CHECK-NEXT:                                choco.ast.id_expr() ["id" = "_"]
+# CHECK-NEXT:                              } {
+# CHECK-NEXT:                                choco.ast.literal() ["value" = !choco.ast.bool<True>]
+# CHECK-NEXT:                              }
+# CHECK-NEXT:                            } {
+# CHECK-NEXT:                              choco.ast.list_expr() {}
+# CHECK-NEXT:                            }
+# CHECK-NEXT:                          }
+# CHECK-NEXT:                        }
+# CHECK-NEXT:                      }
+# CHECK-NEXT:                    }
+# CHECK-NEXT:                  } {
+# CHECK-NEXT:                    choco.ast.binary_expr() ["op" = "and"] {
+# CHECK-NEXT:                      choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                            choco.ast.list_expr() {}
+# CHECK-NEXT:                          }
+# CHECK-NEXT:                        }
+# CHECK-NEXT:                      }
+# CHECK-NEXT:                    } {
+# CHECK-NEXT:                      choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                    }
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                } {
+# CHECK-NEXT:                  choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                    choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                      choco.ast.id_expr() ["id" = "b"]
+# CHECK-NEXT:                    }
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                }
+# CHECK-NEXT:              }
+# CHECK-NEXT:            }
+# CHECK-NEXT:          }
+# CHECK-NEXT:        } {
+# CHECK-NEXT:          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:            choco.ast.list_expr() {}
+# CHECK-NEXT:          }
+# CHECK-NEXT:        }
+# CHECK-NEXT:      } {
+# CHECK-NEXT:        choco.ast.pass()
+# CHECK-NEXT:      }
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

@@ -1,0 +1,54 @@
+# RUN: choco-opt %s | filecheck %s
+Q:bool=""
+i:[int]=None
+def S(B_otn:str) :
+
+	k:[[bool]]=None
+	pass
+	
+
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {
+# CHECK-NEXT:    choco.ast.var_def() {
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "Q"] {
+# CHECK-NEXT:        choco.ast.type_name() ["type_name" = "bool"]
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.literal() ["value" = ""]
+# CHECK-NEXT:    }
+# CHECK-NEXT:    choco.ast.var_def() {
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "i"] {
+# CHECK-NEXT:        choco.ast.list_type() {
+# CHECK-NEXT:          choco.ast.type_name() ["type_name" = "int"]
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.literal() ["value" = !choco.ast.none]
+# CHECK-NEXT:    }
+# CHECK-NEXT:    choco.ast.func_def() ["func_name" = "S"] {
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "B_otn"] {
+# CHECK-NEXT:        choco.ast.type_name() ["type_name" = "str"]
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.type_name() ["type_name" = "<None>"]
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.var_def() {
+# CHECK-NEXT:        choco.ast.typed_var() ["var_name" = "k"] {
+# CHECK-NEXT:          choco.ast.list_type() {
+# CHECK-NEXT:            choco.ast.list_type() {
+# CHECK-NEXT:              choco.ast.type_name() ["type_name" = "bool"]
+# CHECK-NEXT:            }
+# CHECK-NEXT:          }
+# CHECK-NEXT:        }
+# CHECK-NEXT:      } {
+# CHECK-NEXT:        choco.ast.literal() ["value" = !choco.ast.none]
+# CHECK-NEXT:      }
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:  } {
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

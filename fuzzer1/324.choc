@@ -1,0 +1,355 @@
+# RUN: choco-opt %s | filecheck %s
+while --(not not [not not not not --_[not not not None[V if w else not X[(not not [])] and not (not False)] if not not not _ else -_ if not not not not -False[not -[]][not not not -[][not not not (not [])]][G] else O[[]]] if not not not not B else not not (_) and not not -e[not (not (not not not not m))][False] if not (not (not not not not not not not False)[not not None][_]) else not -False,not -[],not False] if (not -False) else d or not not (not not J) if not not not not [] else not -None[E][y][False[False]][not not False] or not not -False[not not True]) and not [] if not H else not not not -[] and P:
+
+	pass
+	pass
+	pass
+	
+
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {} {
+# CHECK-NEXT:    choco.ast.while() {
+# CHECK-NEXT:      choco.ast.if_expr() {
+# CHECK-NEXT:        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:          choco.ast.id_expr() ["id" = "H"]
+# CHECK-NEXT:        }
+# CHECK-NEXT:      } {
+# CHECK-NEXT:        choco.ast.binary_expr() ["op" = "and"] {
+# CHECK-NEXT:          choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:            choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:              choco.ast.if_expr() {
+# CHECK-NEXT:                choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                  choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                    choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                }
+# CHECK-NEXT:              } {
+# CHECK-NEXT:                choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                  choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                    choco.ast.list_expr() {
+# CHECK-NEXT:                      choco.ast.if_expr() {
+# CHECK-NEXT:                        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                              choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                choco.ast.id_expr() ["id" = "B"]
+# CHECK-NEXT:                              }
+# CHECK-NEXT:                            }
+# CHECK-NEXT:                          }
+# CHECK-NEXT:                        }
+# CHECK-NEXT:                      } {
+# CHECK-NEXT:                        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                              choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                                  choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                                    choco.ast.index_expr() {
+# CHECK-NEXT:                                      choco.ast.id_expr() ["id" = "_"]
+# CHECK-NEXT:                                    } {
+# CHECK-NEXT:                                      choco.ast.if_expr() {
+# CHECK-NEXT:                                        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                              choco.ast.id_expr() ["id" = "_"]
+# CHECK-NEXT:                                            }
+# CHECK-NEXT:                                          }
+# CHECK-NEXT:                                        }
+# CHECK-NEXT:                                      } {
+# CHECK-NEXT:                                        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                              choco.ast.index_expr() {
+# CHECK-NEXT:                                                choco.ast.literal() ["value" = !choco.ast.none]
+# CHECK-NEXT:                                              } {
+# CHECK-NEXT:                                                choco.ast.if_expr() {
+# CHECK-NEXT:                                                  choco.ast.id_expr() ["id" = "w"]
+# CHECK-NEXT:                                                } {
+# CHECK-NEXT:                                                  choco.ast.id_expr() ["id" = "V"]
+# CHECK-NEXT:                                                } {
+# CHECK-NEXT:                                                  choco.ast.binary_expr() ["op" = "and"] {
+# CHECK-NEXT:                                                    choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                      choco.ast.index_expr() {
+# CHECK-NEXT:                                                        choco.ast.id_expr() ["id" = "X"]
+# CHECK-NEXT:                                                      } {
+# CHECK-NEXT:                                                        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                            choco.ast.list_expr() {}
+# CHECK-NEXT:                                                          }
+# CHECK-NEXT:                                                        }
+# CHECK-NEXT:                                                      }
+# CHECK-NEXT:                                                    }
+# CHECK-NEXT:                                                  } {
+# CHECK-NEXT:                                                    choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                      choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                        choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                                                      }
+# CHECK-NEXT:                                                    }
+# CHECK-NEXT:                                                  }
+# CHECK-NEXT:                                                }
+# CHECK-NEXT:                                              }
+# CHECK-NEXT:                                            }
+# CHECK-NEXT:                                          }
+# CHECK-NEXT:                                        }
+# CHECK-NEXT:                                      } {
+# CHECK-NEXT:                                        choco.ast.if_expr() {
+# CHECK-NEXT:                                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                              choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                  choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                                                    choco.ast.index_expr() {
+# CHECK-NEXT:                                                      choco.ast.index_expr() {
+# CHECK-NEXT:                                                        choco.ast.index_expr() {
+# CHECK-NEXT:                                                          choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                                                        } {
+# CHECK-NEXT:                                                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                            choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                                                              choco.ast.list_expr() {}
+# CHECK-NEXT:                                                            }
+# CHECK-NEXT:                                                          }
+# CHECK-NEXT:                                                        }
+# CHECK-NEXT:                                                      } {
+# CHECK-NEXT:                                                        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                              choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                                                                choco.ast.index_expr() {
+# CHECK-NEXT:                                                                  choco.ast.list_expr() {}
+# CHECK-NEXT:                                                                } {
+# CHECK-NEXT:                                                                  choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                                    choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                                      choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                                        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                                          choco.ast.list_expr() {}
+# CHECK-NEXT:                                                                        }
+# CHECK-NEXT:                                                                      }
+# CHECK-NEXT:                                                                    }
+# CHECK-NEXT:                                                                  }
+# CHECK-NEXT:                                                                }
+# CHECK-NEXT:                                                              }
+# CHECK-NEXT:                                                            }
+# CHECK-NEXT:                                                          }
+# CHECK-NEXT:                                                        }
+# CHECK-NEXT:                                                      }
+# CHECK-NEXT:                                                    } {
+# CHECK-NEXT:                                                      choco.ast.id_expr() ["id" = "G"]
+# CHECK-NEXT:                                                    }
+# CHECK-NEXT:                                                  }
+# CHECK-NEXT:                                                }
+# CHECK-NEXT:                                              }
+# CHECK-NEXT:                                            }
+# CHECK-NEXT:                                          }
+# CHECK-NEXT:                                        } {
+# CHECK-NEXT:                                          choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                                            choco.ast.id_expr() ["id" = "_"]
+# CHECK-NEXT:                                          }
+# CHECK-NEXT:                                        } {
+# CHECK-NEXT:                                          choco.ast.index_expr() {
+# CHECK-NEXT:                                            choco.ast.id_expr() ["id" = "O"]
+# CHECK-NEXT:                                          } {
+# CHECK-NEXT:                                            choco.ast.list_expr() {}
+# CHECK-NEXT:                                          }
+# CHECK-NEXT:                                        }
+# CHECK-NEXT:                                      }
+# CHECK-NEXT:                                    }
+# CHECK-NEXT:                                  }
+# CHECK-NEXT:                                }
+# CHECK-NEXT:                              }
+# CHECK-NEXT:                            }
+# CHECK-NEXT:                          }
+# CHECK-NEXT:                        }
+# CHECK-NEXT:                      } {
+# CHECK-NEXT:                        choco.ast.if_expr() {
+# CHECK-NEXT:                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                              choco.ast.index_expr() {
+# CHECK-NEXT:                                choco.ast.index_expr() {
+# CHECK-NEXT:                                  choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                    choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                      choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                              choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                                              }
+# CHECK-NEXT:                                            }
+# CHECK-NEXT:                                          }
+# CHECK-NEXT:                                        }
+# CHECK-NEXT:                                      }
+# CHECK-NEXT:                                    }
+# CHECK-NEXT:                                  }
+# CHECK-NEXT:                                } {
+# CHECK-NEXT:                                  choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                    choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                      choco.ast.literal() ["value" = !choco.ast.none]
+# CHECK-NEXT:                                    }
+# CHECK-NEXT:                                  }
+# CHECK-NEXT:                                }
+# CHECK-NEXT:                              } {
+# CHECK-NEXT:                                choco.ast.id_expr() ["id" = "_"]
+# CHECK-NEXT:                              }
+# CHECK-NEXT:                            }
+# CHECK-NEXT:                          }
+# CHECK-NEXT:                        } {
+# CHECK-NEXT:                          choco.ast.binary_expr() ["op" = "and"] {
+# CHECK-NEXT:                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                              choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                choco.ast.id_expr() ["id" = "_"]
+# CHECK-NEXT:                              }
+# CHECK-NEXT:                            }
+# CHECK-NEXT:                          } {
+# CHECK-NEXT:                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                              choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                                  choco.ast.index_expr() {
+# CHECK-NEXT:                                    choco.ast.index_expr() {
+# CHECK-NEXT:                                      choco.ast.id_expr() ["id" = "e"]
+# CHECK-NEXT:                                    } {
+# CHECK-NEXT:                                      choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                              choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                                  choco.ast.id_expr() ["id" = "m"]
+# CHECK-NEXT:                                                }
+# CHECK-NEXT:                                              }
+# CHECK-NEXT:                                            }
+# CHECK-NEXT:                                          }
+# CHECK-NEXT:                                        }
+# CHECK-NEXT:                                      }
+# CHECK-NEXT:                                    }
+# CHECK-NEXT:                                  } {
+# CHECK-NEXT:                                    choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                                  }
+# CHECK-NEXT:                                }
+# CHECK-NEXT:                              }
+# CHECK-NEXT:                            }
+# CHECK-NEXT:                          }
+# CHECK-NEXT:                        } {
+# CHECK-NEXT:                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                            choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                              choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                            }
+# CHECK-NEXT:                          }
+# CHECK-NEXT:                        }
+# CHECK-NEXT:                      }
+# CHECK-NEXT:                      choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                        choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                          choco.ast.list_expr() {}
+# CHECK-NEXT:                        }
+# CHECK-NEXT:                      }
+# CHECK-NEXT:                      choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                        choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                      }
+# CHECK-NEXT:                    }
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                }
+# CHECK-NEXT:              } {
+# CHECK-NEXT:                choco.ast.if_expr() {
+# CHECK-NEXT:                  choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                    choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                      choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                          choco.ast.list_expr() {}
+# CHECK-NEXT:                        }
+# CHECK-NEXT:                      }
+# CHECK-NEXT:                    }
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                } {
+# CHECK-NEXT:                  choco.ast.binary_expr() ["op" = "or"] {
+# CHECK-NEXT:                    choco.ast.id_expr() ["id" = "d"]
+# CHECK-NEXT:                  } {
+# CHECK-NEXT:                    choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                      choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                            choco.ast.id_expr() ["id" = "J"]
+# CHECK-NEXT:                          }
+# CHECK-NEXT:                        }
+# CHECK-NEXT:                      }
+# CHECK-NEXT:                    }
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                } {
+# CHECK-NEXT:                  choco.ast.binary_expr() ["op" = "or"] {
+# CHECK-NEXT:                    choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                      choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                        choco.ast.index_expr() {
+# CHECK-NEXT:                          choco.ast.index_expr() {
+# CHECK-NEXT:                            choco.ast.index_expr() {
+# CHECK-NEXT:                              choco.ast.index_expr() {
+# CHECK-NEXT:                                choco.ast.literal() ["value" = !choco.ast.none]
+# CHECK-NEXT:                              } {
+# CHECK-NEXT:                                choco.ast.id_expr() ["id" = "E"]
+# CHECK-NEXT:                              }
+# CHECK-NEXT:                            } {
+# CHECK-NEXT:                              choco.ast.id_expr() ["id" = "y"]
+# CHECK-NEXT:                            }
+# CHECK-NEXT:                          } {
+# CHECK-NEXT:                            choco.ast.index_expr() {
+# CHECK-NEXT:                              choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                            } {
+# CHECK-NEXT:                              choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                            }
+# CHECK-NEXT:                          }
+# CHECK-NEXT:                        } {
+# CHECK-NEXT:                          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                              choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                            }
+# CHECK-NEXT:                          }
+# CHECK-NEXT:                        }
+# CHECK-NEXT:                      }
+# CHECK-NEXT:                    }
+# CHECK-NEXT:                  } {
+# CHECK-NEXT:                    choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                      choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                        choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                          choco.ast.index_expr() {
+# CHECK-NEXT:                            choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                          } {
+# CHECK-NEXT:                            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                              choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                                choco.ast.literal() ["value" = !choco.ast.bool<True>]
+# CHECK-NEXT:                              }
+# CHECK-NEXT:                            }
+# CHECK-NEXT:                          }
+# CHECK-NEXT:                        }
+# CHECK-NEXT:                      }
+# CHECK-NEXT:                    }
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                }
+# CHECK-NEXT:              }
+# CHECK-NEXT:            }
+# CHECK-NEXT:          }
+# CHECK-NEXT:        } {
+# CHECK-NEXT:          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:            choco.ast.list_expr() {}
+# CHECK-NEXT:          }
+# CHECK-NEXT:        }
+# CHECK-NEXT:      } {
+# CHECK-NEXT:        choco.ast.binary_expr() ["op" = "and"] {
+# CHECK-NEXT:          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:              choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                  choco.ast.list_expr() {}
+# CHECK-NEXT:                }
+# CHECK-NEXT:              }
+# CHECK-NEXT:            }
+# CHECK-NEXT:          }
+# CHECK-NEXT:        } {
+# CHECK-NEXT:          choco.ast.id_expr() ["id" = "P"]
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

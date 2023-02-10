@@ -1,0 +1,52 @@
+# RUN: choco-opt %s | filecheck %s
+def _(D:[[[str]]]) -> [[[str]]]:
+
+	global M6
+	nonlocal _0Gu_kA8
+	pass
+	
+
+pass
+pass
+pass
+pass
+pass
+pass
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {
+# CHECK-NEXT:    choco.ast.func_def() ["func_name" = "_"] {
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "D"] {
+# CHECK-NEXT:        choco.ast.list_type() {
+# CHECK-NEXT:          choco.ast.list_type() {
+# CHECK-NEXT:            choco.ast.list_type() {
+# CHECK-NEXT:              choco.ast.type_name() ["type_name" = "str"]
+# CHECK-NEXT:            }
+# CHECK-NEXT:          }
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.list_type() {
+# CHECK-NEXT:        choco.ast.list_type() {
+# CHECK-NEXT:          choco.ast.list_type() {
+# CHECK-NEXT:            choco.ast.type_name() ["type_name" = "str"]
+# CHECK-NEXT:          }
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.global_decl() ["decl_name" = "M6"]
+# CHECK-NEXT:      choco.ast.nonlocal_decl() ["decl_name" = "_0Gu_kA8"]
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:  } {
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

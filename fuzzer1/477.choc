@@ -1,0 +1,40 @@
+# RUN: choco-opt %s | filecheck %s
+def d() -> [[int]]:
+
+	global Ux
+	global v
+	nonlocal e
+	global _
+	nonlocal _
+	pass
+	pass
+	pass
+	
+
+pass
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {
+# CHECK-NEXT:    choco.ast.func_def() ["func_name" = "d"] {} {
+# CHECK-NEXT:      choco.ast.list_type() {
+# CHECK-NEXT:        choco.ast.list_type() {
+# CHECK-NEXT:          choco.ast.type_name() ["type_name" = "int"]
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.global_decl() ["decl_name" = "Ux"]
+# CHECK-NEXT:      choco.ast.global_decl() ["decl_name" = "v"]
+# CHECK-NEXT:      choco.ast.nonlocal_decl() ["decl_name" = "e"]
+# CHECK-NEXT:      choco.ast.global_decl() ["decl_name" = "_"]
+# CHECK-NEXT:      choco.ast.nonlocal_decl() ["decl_name" = "_"]
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:  } {
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

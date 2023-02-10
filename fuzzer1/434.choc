@@ -1,0 +1,52 @@
+# RUN: choco-opt %s | filecheck %s
+def Uf_lAg(W:int) :
+
+	nonlocal S
+	f:object=""
+	nonlocal _w
+	pass
+	pass
+	
+
+pass
+pass
+pass
+pass
+pass
+pass
+pass
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {
+# CHECK-NEXT:    choco.ast.func_def() ["func_name" = "Uf_lAg"] {
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "W"] {
+# CHECK-NEXT:        choco.ast.type_name() ["type_name" = "int"]
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.type_name() ["type_name" = "<None>"]
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.nonlocal_decl() ["decl_name" = "S"]
+# CHECK-NEXT:      choco.ast.var_def() {
+# CHECK-NEXT:        choco.ast.typed_var() ["var_name" = "f"] {
+# CHECK-NEXT:          choco.ast.type_name() ["type_name" = "object"]
+# CHECK-NEXT:        }
+# CHECK-NEXT:      } {
+# CHECK-NEXT:        choco.ast.literal() ["value" = ""]
+# CHECK-NEXT:      }
+# CHECK-NEXT:      choco.ast.nonlocal_decl() ["decl_name" = "_w"]
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:  } {
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

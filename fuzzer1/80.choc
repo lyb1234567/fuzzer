@@ -1,0 +1,139 @@
+# RUN: choco-opt %s | filecheck %s
+return 
+for __r in _ ([not not BxY43 + r ([]) if _ else not [][not -False] or not "" if not not not not [] else "" and "" if not _ else None or not r,-"",not ((not N)[""]),not None[d][[]],not (n)])[(not not not not not h)]:
+
+	pass
+	pass
+	pass
+	pass
+	pass
+	pass
+	
+
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {} {
+# CHECK-NEXT:    choco.ast.return() {}
+# CHECK-NEXT:    choco.ast.for() ["iter_name" = "__r"] {
+# CHECK-NEXT:      choco.ast.index_expr() {
+# CHECK-NEXT:        choco.ast.call_expr() ["func" = "_"] {
+# CHECK-NEXT:          choco.ast.list_expr() {
+# CHECK-NEXT:            choco.ast.if_expr() {
+# CHECK-NEXT:              choco.ast.id_expr() ["id" = "_"]
+# CHECK-NEXT:            } {
+# CHECK-NEXT:              choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                  choco.ast.binary_expr() ["op" = "+"] {
+# CHECK-NEXT:                    choco.ast.id_expr() ["id" = "BxY43"]
+# CHECK-NEXT:                  } {
+# CHECK-NEXT:                    choco.ast.call_expr() ["func" = "r"] {
+# CHECK-NEXT:                      choco.ast.list_expr() {}
+# CHECK-NEXT:                    }
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                }
+# CHECK-NEXT:              }
+# CHECK-NEXT:            } {
+# CHECK-NEXT:              choco.ast.if_expr() {
+# CHECK-NEXT:                choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                  choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                    choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                      choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                        choco.ast.list_expr() {}
+# CHECK-NEXT:                      }
+# CHECK-NEXT:                    }
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                }
+# CHECK-NEXT:              } {
+# CHECK-NEXT:                choco.ast.binary_expr() ["op" = "or"] {
+# CHECK-NEXT:                  choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                    choco.ast.index_expr() {
+# CHECK-NEXT:                      choco.ast.list_expr() {}
+# CHECK-NEXT:                    } {
+# CHECK-NEXT:                      choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                        choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:                          choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:                        }
+# CHECK-NEXT:                      }
+# CHECK-NEXT:                    }
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                } {
+# CHECK-NEXT:                  choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                    choco.ast.literal() ["value" = ""]
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                }
+# CHECK-NEXT:              } {
+# CHECK-NEXT:                choco.ast.if_expr() {
+# CHECK-NEXT:                  choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                    choco.ast.id_expr() ["id" = "_"]
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                } {
+# CHECK-NEXT:                  choco.ast.binary_expr() ["op" = "and"] {
+# CHECK-NEXT:                    choco.ast.literal() ["value" = ""]
+# CHECK-NEXT:                  } {
+# CHECK-NEXT:                    choco.ast.literal() ["value" = ""]
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                } {
+# CHECK-NEXT:                  choco.ast.binary_expr() ["op" = "or"] {
+# CHECK-NEXT:                    choco.ast.literal() ["value" = !choco.ast.none]
+# CHECK-NEXT:                  } {
+# CHECK-NEXT:                    choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                      choco.ast.id_expr() ["id" = "r"]
+# CHECK-NEXT:                    }
+# CHECK-NEXT:                  }
+# CHECK-NEXT:                }
+# CHECK-NEXT:              }
+# CHECK-NEXT:            }
+# CHECK-NEXT:            choco.ast.unary_expr() ["op" = "-"] {
+# CHECK-NEXT:              choco.ast.literal() ["value" = ""]
+# CHECK-NEXT:            }
+# CHECK-NEXT:            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:              choco.ast.index_expr() {
+# CHECK-NEXT:                choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                  choco.ast.id_expr() ["id" = "N"]
+# CHECK-NEXT:                }
+# CHECK-NEXT:              } {
+# CHECK-NEXT:                choco.ast.literal() ["value" = ""]
+# CHECK-NEXT:              }
+# CHECK-NEXT:            }
+# CHECK-NEXT:            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:              choco.ast.index_expr() {
+# CHECK-NEXT:                choco.ast.index_expr() {
+# CHECK-NEXT:                  choco.ast.literal() ["value" = !choco.ast.none]
+# CHECK-NEXT:                } {
+# CHECK-NEXT:                  choco.ast.id_expr() ["id" = "d"]
+# CHECK-NEXT:                }
+# CHECK-NEXT:              } {
+# CHECK-NEXT:                choco.ast.list_expr() {}
+# CHECK-NEXT:              }
+# CHECK-NEXT:            }
+# CHECK-NEXT:            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:              choco.ast.id_expr() ["id" = "n"]
+# CHECK-NEXT:            }
+# CHECK-NEXT:          }
+# CHECK-NEXT:        }
+# CHECK-NEXT:      } {
+# CHECK-NEXT:        choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:          choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:            choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:              choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                choco.ast.unary_expr() ["op" = "not"] {
+# CHECK-NEXT:                  choco.ast.id_expr() ["id" = "h"]
+# CHECK-NEXT:                }
+# CHECK-NEXT:              }
+# CHECK-NEXT:            }
+# CHECK-NEXT:          }
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

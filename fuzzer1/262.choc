@@ -1,0 +1,40 @@
+# RUN: choco-opt %s | filecheck %s
+__:object=False
+K_:[str]=0
+def Si33() -> int:
+
+	nonlocal N7
+	pass
+	
+
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {
+# CHECK-NEXT:    choco.ast.var_def() {
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "__"] {
+# CHECK-NEXT:        choco.ast.type_name() ["type_name" = "object"]
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:    }
+# CHECK-NEXT:    choco.ast.var_def() {
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "K_"] {
+# CHECK-NEXT:        choco.ast.list_type() {
+# CHECK-NEXT:          choco.ast.type_name() ["type_name" = "str"]
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.literal() ["value" = 0 : !i32]
+# CHECK-NEXT:    }
+# CHECK-NEXT:    choco.ast.func_def() ["func_name" = "Si33"] {} {
+# CHECK-NEXT:      choco.ast.type_name() ["type_name" = "int"]
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.nonlocal_decl() ["decl_name" = "N7"]
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:  } {
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

@@ -1,0 +1,48 @@
+# RUN: choco-opt %s | filecheck %s
+def _() -> [[[[[bool]]]]]:
+
+	nonlocal l
+	nonlocal U
+	nonlocal j_
+	global Vuq
+	global b
+	pass
+	pass
+	pass
+	
+
+pass
+pass
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {
+# CHECK-NEXT:    choco.ast.func_def() ["func_name" = "_"] {} {
+# CHECK-NEXT:      choco.ast.list_type() {
+# CHECK-NEXT:        choco.ast.list_type() {
+# CHECK-NEXT:          choco.ast.list_type() {
+# CHECK-NEXT:            choco.ast.list_type() {
+# CHECK-NEXT:              choco.ast.list_type() {
+# CHECK-NEXT:                choco.ast.type_name() ["type_name" = "bool"]
+# CHECK-NEXT:              }
+# CHECK-NEXT:            }
+# CHECK-NEXT:          }
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.nonlocal_decl() ["decl_name" = "l"]
+# CHECK-NEXT:      choco.ast.nonlocal_decl() ["decl_name" = "U"]
+# CHECK-NEXT:      choco.ast.nonlocal_decl() ["decl_name" = "j_"]
+# CHECK-NEXT:      choco.ast.global_decl() ["decl_name" = "Vuq"]
+# CHECK-NEXT:      choco.ast.global_decl() ["decl_name" = "b"]
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:  } {
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

@@ -1,0 +1,38 @@
+# RUN: choco-opt %s | filecheck %s
+def V() :
+
+	nonlocal p_
+	nonlocal ar
+	global _U2_
+	h:int=None
+	pass
+	pass
+	pass
+	
+
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {
+# CHECK-NEXT:    choco.ast.func_def() ["func_name" = "V"] {} {
+# CHECK-NEXT:      choco.ast.type_name() ["type_name" = "<None>"]
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.nonlocal_decl() ["decl_name" = "p_"]
+# CHECK-NEXT:      choco.ast.nonlocal_decl() ["decl_name" = "ar"]
+# CHECK-NEXT:      choco.ast.global_decl() ["decl_name" = "_U2_"]
+# CHECK-NEXT:      choco.ast.var_def() {
+# CHECK-NEXT:        choco.ast.typed_var() ["var_name" = "h"] {
+# CHECK-NEXT:          choco.ast.type_name() ["type_name" = "int"]
+# CHECK-NEXT:        }
+# CHECK-NEXT:      } {
+# CHECK-NEXT:        choco.ast.literal() ["value" = !choco.ast.none]
+# CHECK-NEXT:      }
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:  } {
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

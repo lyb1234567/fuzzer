@@ -1,0 +1,34 @@
+# RUN: choco-opt %s | filecheck %s
+p___xP_8_K:bool="\\c\\C "
+def _() :
+
+	global p
+	pass
+	pass
+	pass
+	
+
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {
+# CHECK-NEXT:    choco.ast.var_def() {
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "p___xP_8_K"] {
+# CHECK-NEXT:        choco.ast.type_name() ["type_name" = "bool"]
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.literal() ["value" = "\\c\\C "]
+# CHECK-NEXT:    }
+# CHECK-NEXT:    choco.ast.func_def() ["func_name" = "_"] {} {
+# CHECK-NEXT:      choco.ast.type_name() ["type_name" = "<None>"]
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.global_decl() ["decl_name" = "p"]
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:  } {
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:

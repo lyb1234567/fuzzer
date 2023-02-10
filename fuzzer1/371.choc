@@ -1,0 +1,45 @@
+# RUN: choco-opt %s | filecheck %s
+_:str=False
+def _(D:str,_z_S_:[int]) :
+
+	nonlocal m
+	pass
+	pass
+	pass
+	
+
+pass
+pass
+
+# CHECK: module() {
+# CHECK-NEXT:  choco.ast.program() {
+# CHECK-NEXT:    choco.ast.var_def() {
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "_"] {
+# CHECK-NEXT:        choco.ast.type_name() ["type_name" = "str"]
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.literal() ["value" = !choco.ast.bool<False>]
+# CHECK-NEXT:    }
+# CHECK-NEXT:    choco.ast.func_def() ["func_name" = "_"] {
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "D"] {
+# CHECK-NEXT:        choco.ast.type_name() ["type_name" = "str"]
+# CHECK-NEXT:      }
+# CHECK-NEXT:      choco.ast.typed_var() ["var_name" = "_z_S_"] {
+# CHECK-NEXT:        choco.ast.list_type() {
+# CHECK-NEXT:          choco.ast.type_name() ["type_name" = "int"]
+# CHECK-NEXT:        }
+# CHECK-NEXT:      }
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.type_name() ["type_name" = "<None>"]
+# CHECK-NEXT:    } {
+# CHECK-NEXT:      choco.ast.nonlocal_decl() ["decl_name" = "m"]
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:      choco.ast.pass()
+# CHECK-NEXT:    }
+# CHECK-NEXT:  } {
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:    choco.ast.pass()
+# CHECK-NEXT:  }
+# CHECK-NEXT:}
+# CHECK-NEXT:
